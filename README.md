@@ -7,6 +7,7 @@ Wii哪鱼 not available on Wii U Menu.
 Wii哪鱼 Restored '哪鱼味美。。。' and '每位锐。。。' per loading timeout and Micro connector error.     
 Wii哪鱼 added '哪鱼我已'  and '内玉' in multiplayer mode       
 Wii苏膜 added 'Search video' and Multi Language Subtitles do it!
+I added Wii包庇
 # ßeo
 ßeo it:)
 [^1]: Nothing
