@@ -1,7 +1,30 @@
-      - name: Create comment
+on:
+  issue_comment:
+    types: [created]
+jobs:
+  commentCreated:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add reaction
         uses: peter-evans/create-or-update-comment@v3
         with:
-          issue-number: 1
-          body: Game has starting now
-          
-          reactions: '+1'
+          comment-id: ${{ github.event.comment.id }}
+          reactions: eyes
+      - name: Find Comment
+        uses: peter-evans/find-comment@v2
+        id: fc
+        with:
+         issue-number: ${{ github.event.pull_request.number }}
+         comment-author: 'github-actions[bot]'
+         body-includes: Build output
+
+
+    - name: Create or update comment
+      uses: peter-evans/create-or-update-comment@v3
+      with:
+        comment-id: ${{ steps.fc.outputs.comment-id }}
+        issue-number: ${{ github.event.pull_request.number }}
+        body: |
+          Build output
+          ${{ steps.build.outputs.build-log }}
+        edit-mode: replace
