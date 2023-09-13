@@ -1,0 +1,16 @@
+name: "Auto-Close"
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  play:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.issue.title, 'Host') || startsWith(github.event.issue.title, 'Pause') || startsWith(github.event.issue.title, 'Use chat')
+    steps:
+    - uses: actions/checkout@v2
+    - name: Close Issue
+      uses: peter-evans/close-issue@v1
+      with:
+        comment: Auto-closing this issue.
