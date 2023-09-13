@@ -1,0 +1,7 @@
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v3
+        with:
+          issue-number: 1
+          body: Game has starting now
+          
+          reactions: '+1'
